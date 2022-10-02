@@ -1,0 +1,20 @@
+.event-image img {
+    width: 100%;
+}
+.event-text {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 32px;
+}
+
+.event-subtext {
+    font-family: "Helvetica";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    padding-top: 0.5em;
+}
+.event-dataContainer {
+    padding-top: 1em;
+}

@@ -1,0 +1,28 @@
+.button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 187px;
+    height: 50px;
+    border: 0;
+    background: linear-gradient(90deg, #8456ec 3.25%, #e87bf8 100%);
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    /* identical to box height */
+
+    text-align: right;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.button a {
+    text-decoration: none;
+    color: #ffffff;
+}

@@ -1,13 +1,70 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+    --background-color: #f6f2ff;
+    --primary-purple-light: #8456ec;
+    --primary-purple: #501fc1;
+    --primary-purple-dark: #240d57;
+    --light-color: #4f4f4f;
+}
+
+body {
+    margin: 0;
+    font-family: "Helvetica", sans-serif;
+
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--background-color);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+.container-text {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 36px;
+    /* or 100% */
+
+    display: flex;
+    flex-direction: column;
+    color: #240d57;
+}
+
+.container-text-special {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 41px;
+    text-align: center;
+
+    background: linear-gradient(90deg, #8456ec 24.2%, #e87bf8 120.46%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.container-subtext {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 18px;
+
+    color: #4f4f4f;
+
+    /* Inside auto layout */
+    flex: none;
+    flex-grow: 0;
+}
+
+.center-align {
+    text-align: center;
+
+    align-items: center;
 }
