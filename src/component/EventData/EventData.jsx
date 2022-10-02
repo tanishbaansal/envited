@@ -1,6 +1,8 @@
 import React from "react";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import "./EventData.css";
+
+import parse from "html-react-parser";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 const EventData = (props) => {
@@ -13,7 +15,9 @@ const EventData = (props) => {
             <div className="eventData-data">
                 <div className="eventData-mainData">{props.mainData}</div>
                 <div className="eventData-secondaryData">
-                    {props.type === "location" ? props.secondaryData : `to ${props.secondaryDate} `}
+                    {props.type === "location"
+                        ? props.secondaryData
+                        : parse(`to <strong>${props.secondaryDate}</strong> `)}
                     {props.type === "date" ? props.dateFormat : ""}
                 </div>
             </div>

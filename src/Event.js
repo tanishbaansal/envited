@@ -57,7 +57,7 @@ const Event = () => {
                     <EventData
                         type="location"
                         mainData="Street name"
-                        location={location.state[0].location}
+                        secondaryData={location.state[0].location}
                     />
                 </div>
             </div>
