@@ -31,10 +31,7 @@ const Event = () => {
     return (
         <>
             <div className="event-image">
-                <img
-                    src={location.state[0].image ? location.state[0].image : defaultImage}
-                    alt="Event"
-                />
+                <img src={location.state[3] ? location.state[3] : defaultImage} alt="Event" />
             </div>
             <div className="container">
                 <div className="container-text event-text">{location.state[0].eventName}</div>

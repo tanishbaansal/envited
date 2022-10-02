@@ -12,17 +12,27 @@ import Button from "@mui/material/Button";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import LinkButton from "./component/Button/LinkButton";
-const initialFormData = Object.freeze({
+const initialFormData = Object({
     hostName: "",
     eventName: "",
     location: "",
-    image: "",
 });
 
 const Create = () => {
     const [startDate, setStartDate] = React.useState(null);
     const [endDate, setEndDate] = React.useState(null);
     const [formData, updateFormData] = React.useState(initialFormData);
+    const [imgData, setImgData] = React.useState(null);
+
+    const onChangePicture = (e) => {
+        if (e.target.files[0]) {
+            const reader = new FileReader();
+            reader.addEventListener("load", () => {
+                setImgData(reader.result);
+            });
+            reader.readAsDataURL(e.target.files[0]);
+        }
+    };
 
     const handleChange = (e) => {
         updateFormData({
@@ -135,18 +145,16 @@ const Create = () => {
                         sx={{ p: 2, color: "var(--primary-purple-light)" }}
                         variant="outlined"
                         size="large"
-                        name="image"
-                        onChange={handleChange}
                         component="label"
                         startIcon={<AddAPhotoIcon />}
                     >
                         Event Photo
-                        <input type="file" hidden name="image" />
+                        <input type="file" hidden name="image" onChange={onChangePicture} />
                     </Button>
                 </div>
             </Box>
 
-            <LinkButton text="Next ➡" to="/event" state={[formData, startDate, endDate]} />
+            <LinkButton text="Next ➡" to="/event" state={[formData, startDate, endDate, imgData]} />
         </div>
     );
 };
