@@ -12,7 +12,10 @@ const EventData = (props) => {
             </div>
             <div className="eventData-data">
                 <div className="eventData-mainData">{props.mainData}</div>
-                <div className="eventData-secondaryData">{props.secondaryData}</div>
+                <div className="eventData-secondaryData">
+                    {props.type === "location" ? props.secondaryData : `to ${props.secondaryDate} `}
+                    {props.type === "date" ? props.dateFormat : ""}
+                </div>
             </div>
             <div className="eventData-arrow-end">
                 <ArrowForwardIosIcon fontSize="small" />

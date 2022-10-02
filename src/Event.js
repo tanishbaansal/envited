@@ -3,6 +3,28 @@ import { useLocation } from "react-router-dom";
 import defaultImage from "./assets/img/Birthday cake.png";
 import EventData from "./component/EventData/EventData";
 import "./Event.css";
+function formatDate(date, utcRequired) {
+    var d = date,
+        month = "" + d.toLocaleString("default", { month: "long" }),
+        day = "" + d.getDate(),
+        time = "" + d.toLocaleString("en-US", { hour: "numeric", hour12: true }),
+        utc =
+            "" +
+            d
+                .toLocaleDateString("en-US", {
+                    day: "2-digit",
+                    timeZoneName: "short",
+                })
+                .slice(4);
+
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
+    if (utcRequired) {
+        return [day, month, time, utc].join(" ");
+    }
+    return [day, month, time].join(" ");
+}
+
 const Event = () => {
     const location = useLocation();
     console.log(`State is ${JSON.stringify(location.state)}`);
@@ -23,13 +45,19 @@ const Event = () => {
                 <div className="event-dataContainer">
                     <EventData
                         type="date"
-                        mainData={new Date(location.state[1]).toDateString()}
-                        secondaryData={`to ${new Date(location.state[2]).toDateString()}`}
+                        mainData={formatDate(new Date(location.state[1]), false)}
+                        secondaryDate={formatDate(new Date(location.state[2]))}
+                        dateFormat={new Date(location.state[2])
+                            .toLocaleDateString("en-US", {
+                                day: "2-digit",
+                                timeZoneName: "short",
+                            })
+                            .slice(4)}
                     />
                     <EventData
                         type="location"
                         mainData="Street name"
-                        secondaryData={location.state[0].location}
+                        location={location.state[0].location}
                     />
                 </div>
             </div>
